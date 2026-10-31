@@ -1,0 +1,3 @@
+data/raw/*.json
+data/warehouse/*.db
+__pycache__/
