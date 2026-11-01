@@ -14,10 +14,6 @@ from pipeline.config import (
     TIME_ZONE,
 )
 
-# --- Time zone format ---
-TIME_ZONE_INFO = ZoneInfo(TIME_ZONE)
-# ---
-
 
 def fetch_and_save_json(url: str, params: dict, output_path: Path) -> dict:
     response = requests.get(url, params=params, timeout=10)
@@ -52,4 +48,5 @@ def get_air_data() -> dict:
 
 
 def format_time_zone() -> str:
+    TIME_ZONE_INFO = ZoneInfo(TIME_ZONE)
     return datetime.now(TIME_ZONE_INFO).strftime("%Y-%m-%d")
