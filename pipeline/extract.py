@@ -32,7 +32,7 @@ def fetch_and_save_json(url: str, params: dict, output_path: Path) -> dict:
 
 
 def get_meteo_data() -> dict:
-    date = datetime.now(TIME_ZONE_INFO).strftime("%Y-%m-%d")
+    date = format_time_zone()
 
     return fetch_and_save_json(
         OPEN_METEO_URL,
@@ -42,10 +42,14 @@ def get_meteo_data() -> dict:
 
 
 def get_air_data() -> dict:
-    date = datetime.now(TIME_ZONE_INFO).strftime("%Y-%m-%d")
+    date = format_time_zone()
 
     return fetch_and_save_json(
         AIR_QUALITY_URL,
         PARAMS_AIR_QUALITY,
         DATA_PATH_RAW / f"air_data_{date}.json",
     )
+
+
+def format_time_zone() -> str:
+    return datetime.now(TIME_ZONE_INFO).strftime("%Y-%m-%d")
