@@ -39,24 +39,24 @@ extract ──dict──▶ transform ──DataFrame──▶ load ──▶ da
 
 เสร็จเมื่อ: ได้ตารางเดียวที่มี `time`, ค่าอากาศ, `pm10`, `pm2_5` และจำนวนแถวตรงกับ `how` ที่เลือก
 
-## ⬜ รอบ 5: load
+## ✅ รอบ 5: load
 
 เป้าหมาย: เซฟตารางที่ merge แล้วลง SQLite
 
-- [ ] เพิ่ม path ของไฟล์ `.db` ใน `config.py` (ใน `data/warehouse/`)
-- [ ] `load.py`: function รับ DataFrame แล้วเขียนลงฐานข้อมูล
-- [ ] ใช้ `sqlite3.connect`, `df.to_sql(name, con, if_exists=..., index=False)`, `con.close()`
-- [ ] เลือก `if_exists`: เริ่มด้วย `"replace"` ก่อน (`"append"` รันซ้ำแล้วข้อมูลจะซ้ำ)
+- [x] เพิ่ม path ของไฟล์ `.db` ใน `config.py` (ใน `data/warehouse/`)
+- [x] `load.py`: function รับ DataFrame แล้วเขียนลงฐานข้อมูล
+- [x] ใช้ `sqlite3.connect`, `df.to_sql(name, con, if_exists=..., index=False)`, `con.close()`
+- [x] เลือก `if_exists`: เริ่มด้วย `"replace"` ก่อน (`"append"` รันซ้ำแล้วข้อมูลจะซ้ำ)
 
 เสร็จเมื่อ: `pd.read_sql("SELECT * FROM ...", con)` อ่านกลับมาได้ครบทุกแถว
 
-## ⬜ รอบ 6: `__main__.py`
+## ✅ รอบ 6: `__main__.py`
 
 เป้าหมาย: สั่งคำสั่งเดียวแล้วรันครบทุกขั้น
 
-- [ ] import function จาก extract, transform, load
-- [ ] เรียกตามลำดับ extract → transform → merge → load
-- [ ] ใส่ `print(...)` บอกว่ากำลังทำขั้นไหนอยู่
+- [x] import function จาก extract, transform, load
+- [x] เรียกตามลำดับ extract → transform → merge → load
+- [x] ใส่ `print(...)` บอกว่ากำลังทำขั้นไหนอยู่
 
 เสร็จเมื่อ: รัน `uv run python -m pipeline` จาก root แล้วได้ไฟล์ JSON ใหม่ใน `data/raw/` และไฟล์ `.db` ใน `data/warehouse/`
 
