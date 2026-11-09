@@ -60,14 +60,14 @@ extract ──dict──▶ transform ──DataFrame──▶ load ──▶ da
 
 เสร็จเมื่อ: รัน `uv run python -m pipeline` จาก root แล้วได้ไฟล์ JSON ใหม่ใน `data/raw/` และไฟล์ `.db` ใน `data/warehouse/`
 
-## ⬜ รอบ 7: tests
+## ✅ รอบ 7: tests
 
 เป้าหมาย: test transform โดยไม่ต้องใช้เน็ต
 
-- [ ] `uv add --dev pytest`
-- [ ] `tests/test_transform.py`: สร้าง dict ปลอม 2-3 ชั่วโมง แล้วส่งเข้า transform
-- [ ] `assert` จำนวนแถว, ชื่อคอลัมน์ และชนิดของ `time` ว่าเป็น datetime
-- [ ] test merge ด้วย DataFrame ปลอมสองตัว
+- [x] `uv add --dev pytest`
+- [x] `tests/test_transform.py`: สร้าง dict ปลอม 2-3 ชั่วโมง แล้วส่งเข้า transform
+- [x] `assert` จำนวนแถว, ชื่อคอลัมน์ และชนิดของ `time` ว่าเป็น datetime
+- [x] test merge ด้วย DataFrame ปลอมสองตัว
 
 เสร็จเมื่อ: `uv run python -m pytest` ผ่านทุกตัว
 
